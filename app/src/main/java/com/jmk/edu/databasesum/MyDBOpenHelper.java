@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class MyDBOpenHelper extends SQLiteOpenHelper {
     private static final String name = "jmk.db";
     private static final SQLiteDatabase.CursorFactory factory = null;
-    private static final int version = 1;
+    private static final int version = 2;
 
     public MyDBOpenHelper(Context context) {
         super(context, name, factory, version);
@@ -22,9 +22,6 @@ public class MyDBOpenHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE jmk_country (pkid TEXT PRIMARY KEY, country TEXT, city TEXT);");
 
-        for(int i=0; i<10; i++){
-            db.execSQL("INSERT INTO jmk_country VALUES( null, '" + "Country"+ i + "', '" + "City" + i + "');");
-        }
         db.execSQL("CREATE TABLE jmk_country_visitedcount (fkid TEXT);");
 
     }
